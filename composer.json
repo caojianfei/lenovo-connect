@@ -1,0 +1,17 @@
+{
+  "name": "caojianfei/lenovo-connect",
+  "description": "联想懂的通信(全球智联平台通用服务接口协议)",
+  "type": "library",
+  "authors": [
+    {
+      "name": "caojianfei",
+      "email": "120631902@qq.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "LenoveConnect\\": "src/"
+    }
+  }
+}
