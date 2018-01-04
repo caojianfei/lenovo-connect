@@ -1,6 +1,6 @@
 {
   "name": "caojianfei/lenovo-connect",
-  "description": "联想懂的通信(全球智联平台通用服务接口协议)",
+  "description": "联想懂的通信(全球智联平台通用服务接口协议)[php sdk]",
   "type": "library",
   "authors": [
     {
