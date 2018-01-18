@@ -28,9 +28,9 @@ class ProductQuery extends BaseService
     {
         parent::checkSysParam();
 
-        if (empty($this->param['iccid'])) {
-            throw new \Error('iccid can not be empty');
-        }
+//        if (empty($this->param['iccid'])) {
+//            throw new \Error('iccid can not be empty');
+//        }
     }
 
     protected function parseResult($result)

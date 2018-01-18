@@ -135,7 +135,10 @@ abstract class BaseService
      */
     protected function generateSign()
     {
-        $param = array_merge($this->param, $this->systemParam);
+        $param = array_filter(array_merge($this->param, $this->systemParam), function ($v) {
+            return ! ($v === '');
+        });
+
         $app_key = $param['appKey'];
         unset($param['sign']);
         unset($param['appKey']);
@@ -155,7 +158,10 @@ abstract class BaseService
      */
     protected function request($mock = false)
     {
-        $params = array_merge($this->systemParam, $this->param);
+        $params = array_filter(array_merge($this->systemParam, $this->param), function ($v) {
+            return ! ($v === '');
+        });
+
         $url = $this->gatewayUrl . '?' . http_build_query($params);
 
         if ($mock) {

@@ -33,7 +33,7 @@ class CardHandleStopOn extends BaseService
             throw new \Error('iccid can not be empty');
         }
 
-        if (empty($this->param['stateCode']) || !in_array((string)$this->param['stateCode'], ["0", "1"])) {
+        if ($this->param['stateCode'] === '' || !in_array((string)$this->param['stateCode'], ["0", "1"])) {
             throw new \Error('stateCode can not be empty and can be only 0 or 1');
         }
 
