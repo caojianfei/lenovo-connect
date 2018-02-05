@@ -11,7 +11,7 @@ $china_telecom = '8986031646202015893H';
 //联通卡
 $china_unicom  = '8986061703000054512J';
 
-$iccid = $china_unicom;
+$iccid = $china_mobile;
 
 $sys_config = [
     'appKey' => '7S3331ojj29lj19Nr4n41k25jD9obp',
@@ -24,7 +24,8 @@ function encodeStr2GBK($str) {
 }
 
 //剩余流量查询
-//$result = Client::SurplusFlowQuery(['iccid' => $iccid], $sys_config);
+//$result = Client::SurplusFlowQuery(['iccid' => $iccid], $sys_config, false);
+//var_dump((string)$result->originResult);
 //var_dump($result->surplusFlowValue);
 //var_dump($result->userFlowValue);
 
@@ -78,11 +79,12 @@ function flowOrderChange($iccid) {
 
         //订购
         $result = Client::FlowOrderChange(['iccid' => $iccid, 'goodsId' => $product_id], $sys_config);
-        var_dump($result);
-        var_dump(encodeStr2GBK($result->respDesc));
+        //var_dump($result);
+        //var_dump(encodeStr2GBK($result->respDesc));
         return $result;
     } else {
         var_dump($queryProducts);
+        return $queryProducts;
     }
 }
 
@@ -100,8 +102,22 @@ function cardHandleStopOn($iccid, $state) {
     return $result;
 }
 
-cardStateQuery($china_mobile);
+//cardStateQuery($china_mobile);
+
+function productQuery($iccid)
+{
+    global $sys_config;
+
+    $result = Client::ProductQuery(['iccid' => $iccid], $sys_config);
+
+    return $result;
+}
+
+$result = productQuery($china_unicom);
 
 
+//$result = flowOrderChange($china_unicom);
+
+var_dump(json_decode((string)$result, true));
 
 

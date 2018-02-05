@@ -55,4 +55,14 @@ abstract class BaseResult
     }
 
     abstract protected function parseBusiness($result_info);
+
+    public function __toString()
+    {
+        $vars = get_object_vars($this);
+
+        if (isset($vars['originResult'])) {
+            unset($vars['originResult']);
+        }
+        return json_encode($vars);
+    }
 }
