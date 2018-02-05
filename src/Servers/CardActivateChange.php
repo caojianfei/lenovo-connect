@@ -8,7 +8,7 @@
 
 namespace LenoveConnect\Servers;
 
-use LenoveConnect\Results\CardStateQueryResult;
+use LenoveConnect\Results\CardActivateChangeResult;
 
 
 class CardActivateChange extends BaseService
@@ -36,7 +36,7 @@ class CardActivateChange extends BaseService
 
     protected function parseResult($result)
     {
-        return call_user_func_array([new CardStateQueryResult(), 'parse'], (array) $result);
+        return call_user_func_array([new CardActivateChangeResult(), 'parse'], (array) $result);
     }
 
 }
